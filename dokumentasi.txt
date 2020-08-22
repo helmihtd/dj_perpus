@@ -1,0 +1,37 @@
+Struktur django yaitu dari db > model > view > template > url conf > kembali ke view dan ke db
+model : tempat membuat struktur database
+view : tempat mengatur logika dari model ke template (contoh menampilkan data dari model d atur view)
+template : tempat menampilkan file html dari model yg sudah d passing oleh view
+url conf : untuk mengatur routing dari web
+
+Secara garis besar, alur membuat project ini yaitu :
+1. Setting env dan install django admin dan apps.
+2. Setting apps, template dan db agar bisa terbaca di project.
+3. Setup bootstrap/css/js di static folder lalu di hubungkan.
+4. Setup database dan buat model dari web tersebut
+5. Mencoba django admin
+6. Membuat CRUD = Tambah, tampil, ubah, hapus
+7. Membuat otentikasi login dan logout
+8. Membuat akses username dan permission
+9. Signup atau daftar
+10. Membuat upload file
+11. Membuat export excel
+12. Memindah file ke env
+13. Deploy
+
+1. 	Setup environtment dulu lebih baik, jika tidak ingin bisa langsung membuat project django, lalu nanti
+	akan dipindahkan ke environtment.
+	install env : python -m venv env
+	install django : pip install django===2.2
+	Untuk jalan env menggunakan : env\Scripts\activate
+	untuk jalankan server : python manage.py runserver
+
+1a.	Setup berupa membuat admin project dan appsnya
+	1. django admin : django-admin startproject namaproject
+	2. masuk ke namaproject lalu buat apps utk isikan view, model dan template dengan cara
+	   django-admin startap namaapp
+	3. Setting installed_apps di settings.py untuk membaca folder apps yg sudah dibuat
+
+2.	Membuat template
+	1. Buat folder templates lalu tambahkan di settings.py dan templates =  DIRS tambahkan ['templates']
+	

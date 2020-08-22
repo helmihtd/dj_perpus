@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"> 
+        
+        {% if pesan %}
+            {% comment %} Jika berhasil, munculkan pesan {% endcomment %}
+            <div class="alert alert-success">{{ pesan }}</div>
+        {% endif %}
+            {% comment %} multipart/form-data utk submit files gambar {% endcomment %}
+            <form action="/tambah-buku/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+
+            <button class="btn btn-primary">Tambah Buku</button>
+            <a href="/buku" class="btn btn-danger">Kembali</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

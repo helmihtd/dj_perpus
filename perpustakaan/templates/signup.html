@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_superuser %}
+
+<div class="container">
+    <div class="row">   
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Tambah User
+                </div>
+                <div class="card-body">
+                    {% for pesan in messages %}
+                        {% if pesan.tags == 'success' %}
+                         <div class="alert alert-success">{{ pesan }}</div>
+                         {% else %}
+                         <div class="alert alert-danger">{{ pesan }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    <form action="{% url 'signup' %}" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <button class="btn btn-primary">Kirim</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+    {% comment %} ini utk agar yg login tidak bisa login lagi {% endcomment %}
+    <meta http-equiv="refresh" content="0; url={% url 'buku' %}">
+{% endif %}
+
+{% endblock %}

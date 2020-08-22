@@ -1,0 +1,7 @@
+<center>
+    <h1 style="color: green;">Perpustakaan Sekolah</h1>
+    {% comment %} Jika logout, tidak ditampilkan nama user {% endcomment %}
+    {% if user.is_authenticated %}
+        <p>Halo, <strong>{{ user }}</strong> ! / <a href="{% url 'keluar' %}">Keluar</a></p>
+    {% endif %}
+</center>
